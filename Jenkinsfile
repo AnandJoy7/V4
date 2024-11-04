@@ -2,8 +2,8 @@ pipeline {
     agent any
  
     environment {
-        AWS_ACCESS_KEY_ID     = credentials('aws_credentials')
-        AWS_SECRET_ACCESS_KEY = credentials('aws_credentials')
+        AWS_ACCESS_KEY_ID     = credentials('aws-access-key')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
         GITHUB_PAT            = credentials('github-pat')
         AWS_DEFAULT_REGION    = 'us-east-1'
         PATH = "$PATH:/usr/local/bin:/usr/bin"
@@ -48,7 +48,7 @@ pipeline {
                     git(
                         url: 'https://github.com/AnandJoy7/terra_auto_testing.git',
                         branch: 'main',
-                        credentialsId: 'github_credentials'
+                        credentialsId: 'github-credentials'
                     )
                 }
             }
